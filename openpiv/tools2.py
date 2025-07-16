@@ -70,7 +70,7 @@ def to_readblearray(
 
 def save_array(
     filename: Union[pathlib.Path, str],
-    out: np.ndarray,
+    arrayin: np.ndarray,
     fmt: str = "%.4e",
     delimiter: str = "\t",
 ) -> None:
@@ -81,7 +81,7 @@ def save_array(
     filename : string
         the path of the file where to save the flow field
 
-    out : np.ndarray
+    arrayin : np.ndarray
 
 
     fmt : string
@@ -94,7 +94,7 @@ def save_array(
     Examples
     --------
 
-    openpiv.tools2.save_array('field_001.txt',out,  fmt='%6.3f',
+    openpiv.tools2.save_array('field_001.txt',arrayin,  fmt='%6.3f',
                         delimiter='\t')
 
     """
@@ -102,7 +102,7 @@ def save_array(
     # save data to file.
     np.savetxt(
         filename,
-        out,
+        arrayin,
         fmt=fmt,
         delimiter=delimiter,
         header="x"
@@ -122,7 +122,7 @@ def array_on_matrix(
     a:list,
     matrx:list
 )->list:
-    """ Multiplication of results array on transformation matrix .
+    """ Multiplication of results array from "to_readblearray" on transformation matrix.
 
     Parameters
     ----------
